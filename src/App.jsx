@@ -1,21 +1,21 @@
-import React, { useState } from 'react';  
-import Login from '../src/components/Login';
-import Footer from './components/Footer';
-import Header from './components/Header'
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+// import Profile from "./pages/Profile";
+// import About from "./pages/About";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='flex flex-col h-[100vh] w-[100vw] bg-[#121212]'>
-      <Header/>
-      <div className="bg-[url('/bg-dark.png')] bg-cover bg-no-repeat bg-center h-screen flex flex-col justify-between pt-16">
-        <Login/>
-        <Footer/>
-      </div>
-      
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        {/* <Route path="/profile" element={<Profile />} />
+        <Route path="/about" element={<About />} /> */}
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
