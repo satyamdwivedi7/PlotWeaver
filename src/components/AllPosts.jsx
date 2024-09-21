@@ -30,6 +30,7 @@ export default function AllPosts() {
             content={post.content}
             author={post.author}
             genre={post.genre}
+            postId={post._id}
           />
         ))
       ) : (
