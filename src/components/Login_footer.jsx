@@ -28,19 +28,19 @@ const Login_footer = () => {
         </div>
         <div className="flex justify-center text-white gap-[3rem]">
           <p>
-            <a href="">HOME</a>
+            <a href="/home">HOME</a>
           </p>
           <p>
-            <a href="">EXPLORE</a>
+            <a href="/home">EXPLORE</a>
           </p>
           <p>
-            <a href="">FAQs</a>
+            <a href="/faq">FAQs</a>
           </p>
           <p>
-            <a href="">CONTACT US</a>
+            <a href="/contacts">CONTACT US</a>
           </p>
           <p>
-            <a href="">OUR TEAM</a>
+            <a href="/">OUR TEAM</a>
           </p>
         </div>
       </div>
