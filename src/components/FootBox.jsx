@@ -3,7 +3,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 export default function FootBox() {
   return (
     <div className="bg-[#121212] pb-16">
-      <div className=" text-white bg-[#D9D9D9] bg-opacity-10 flex flex-col p-4 gap-4 items-center justify-center border rounded-lg mx-32">
+      <div className=" text-white bg-[#D9D9D9] bg-opacity-10 flex flex-col p-4 py-12 gap-8 items-center justify-center border rounded-lg mx-32">
         <IoMdCheckmarkCircleOutline className="text-5xl" />
         <h1 className="text-3xl">
           YOU'VE REACHED THE END OF YOUR CURATED FEED
