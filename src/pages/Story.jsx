@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Post from "../components/Post";
+import Chapter from "../components/Chapter";
+import Login_footer from "../components/Login_footer";
+import Description from "../components/Description";
+import Comments from "../components/Comments";
 
 export default function Story() {
   const { id } = useParams();
+  const location = useLocation(); // To get the current URL fragment
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,21 +32,36 @@ export default function Story() {
     fetchPost();
   }, [id]);
 
+  // Scroll to the comments section when the page loads if the URL has #comments
+  useEffect(() => {
+    if (location.hash === "#comments") {
+      const commentsElement = document.getElementById("comments");
+      if (commentsElement) {
+        commentsElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!post) return <p>Story not found.</p>;
 
   return (
-    <div className="bg-[#121212] text-white px-16">
-      <Navbar />
-      <Post
-        key={post._id}
-        title={post.title}
-        content={post.content}
-        author={post.author}
-        genre={post.genre}
-        postId={post._id}
-      />
-    </div>
+    <>
+      <div className="bg-[#121212] text-white px-16">
+        <Navbar />
+        <Description
+          key={post._id}
+          title={post.title}
+          content={post.content}
+          author={post.author}
+          genre={post.genre}
+          postId={post._id}
+        />
+        <Chapter />
+        <Comments />
+      </div>
+      <Login_footer />
+    </>
   );
 }

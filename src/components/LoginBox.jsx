@@ -7,7 +7,8 @@ const Login = ({ setLoginType }) => {
   const navigate = useNavigate();
 
   const guestClick = () => {
-    setLoginType("guest"); // Set login type to guest
+    setLoginType("guest");
+    localStorage.setItem("name", "Guest");
     navigate("/home");
   };
 
@@ -28,7 +29,9 @@ const Login = ({ setLoginType }) => {
 
         const userData = await res.json();
         console.log("User Data:", userData);
-        setLoginType("google"); // Set login type to Google
+        localStorage.setItem("name", userData.name);
+        localStorage.setItem("token", accessToken);
+        setLoginType("google");
         navigate("/home");
       } catch (error) {
         console.error("Error fetching user information", error);
