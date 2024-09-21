@@ -1,8 +1,13 @@
+import Navbar from "../components/Navbar"
+import AllPosts from "../components/AllPosts"
+import FootBox from "../components/FootBox"
+
 export default function Home(){
     return(
-        <div>
-            <h1>Home</h1>
-            <p>Home page content</p>
+        <div className="bg-[#121212] h-full px-16">
+            <Navbar />
+            <AllPosts />
+            <FootBox />
         </div>
     )
 }
