@@ -1,8 +1,11 @@
+import Login_footer from "../components/Login_footer"
+import Faqs from "../components/Faqs"
+
 export default function Home(){
     return(
         <div>
-            <h1>Home</h1>
-            <p>Home page content</p>
+            <Faqs/>
+            <Login_footer/>
         </div>
     )
 }
