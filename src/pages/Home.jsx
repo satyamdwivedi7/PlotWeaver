@@ -1,11 +1,13 @@
-import Login_footer from "../components/Login_footer"
-import Faqs from "../components/Faqs"
+import Navbar from "../components/Navbar"
+import AllPosts from "../components/AllPosts"
+import FootBox from "../components/FootBox"
 
 export default function Home(){
     return(
-        <div>
-            <Faqs/>
-            <Login_footer/>
+        <div className="bg-[#121212] h-full px-16">
+            <Navbar />
+            <AllPosts />
+            <FootBox />
         </div>
     )
 }
