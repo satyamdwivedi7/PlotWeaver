@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Chapter from "../components/Chapter";
+import Version from "../components/Version";
 import Login_footer from "../components/Login_footer";
 import Description from "../components/Description";
 import Comments from "../components/Comments";
@@ -53,12 +53,14 @@ export default function Story() {
         <Description
           key={post._id}
           title={post.title}
-          content={post.content}
-          author={post.author}
+          content={post.description}
+          author={post.overallAuthor}
           genre={post.genre}
           postId={post._id}
         />
-        <Chapter />
+        <div className="w-4/5 flex mx-auto">
+          <Version versions={post.versions} />
+        </div>
         <Comments />
       </div>
       <Login_footer />

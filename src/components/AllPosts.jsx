@@ -27,7 +27,7 @@ export default function AllPosts() {
           <Post
             key={post._id}
             title={post.title}
-            content={post.content}
+            content={post.description}
             author={post.author}
             genre={post.genre}
             postId={post._id}
