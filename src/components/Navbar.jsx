@@ -26,6 +26,7 @@ export default function Navbar() {
 
   // Simulate login function for demonstration
   function Login() {
+    localStorage.clear();
     navigate("/");
   }
 

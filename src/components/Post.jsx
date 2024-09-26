@@ -38,8 +38,13 @@ export default function Post({ title, content, author, genre, postId }) {
         <h1 className="mx-4 text-2xl">{title}</h1>
         <p className="mx-4 text-sm">20/09/2024</p>
         <div className="flex justify-between mx-4 text-xl">
-          <div>
-            <p>Genre: {genre}</p>
+          <div className="font-sans text-base my-2">
+            <p>
+              Genre:{" "}
+              <span className="border text-base px-2 bg rounded-full bg-[#FFBD84] text-black">
+                {genre}
+              </span>
+            </p>
           </div>
           <div className="flex gap-2">
             <FaPenNib />
@@ -57,7 +62,7 @@ export default function Post({ title, content, author, genre, postId }) {
             <div className="flex items-center justify-center text-center gap-2 w-24 h-8 p-1 border-2 rounded-full">
               <button onClick={handleUpvote}>
                 {upvoted ? (
-                  <BiUpvote className="text-xl text-green-500" /> 
+                  <BiUpvote className="text-xl text-green-500" />
                 ) : (
                   <BiUpvote className="text-xl" />
                 )}
@@ -65,7 +70,7 @@ export default function Post({ title, content, author, genre, postId }) {
               <p className="flex h-full items-center font-mono">{count}</p>
               <button onClick={handleDownvote}>
                 {downvoted ? (
-                  <BiDownvote className="text-xl text-red-500" /> 
+                  <BiDownvote className="text-xl text-red-500" />
                 ) : (
                   <BiDownvote className="text-xl" />
                 )}

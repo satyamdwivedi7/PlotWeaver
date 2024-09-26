@@ -12,6 +12,8 @@ import Story from "./pages/Story";
 import "./App.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Chapter from "./pages/Chapter";
+import CreateStory from "./pages/Create-Story";
+import CreateChapter from "./pages/Create-Chapter";
 
 const clientId =
   "444233035555-eiuu84mh3ieuunoeuddtpo2r83v6pei1.apps.googleusercontent.com";
@@ -36,6 +38,9 @@ function App() {
             path="/story/:id/version/:versionIndex/chapter/:chapterIndex"
             element={<StoryWithChapters />}
           />
+          <Route path="/create-story" element={<CreateStory />} />
+          <Route path="/create-chapter" element={<CreateChapter />} />
+
         </Routes>
       </Router>
     </GoogleOAuthProvider>

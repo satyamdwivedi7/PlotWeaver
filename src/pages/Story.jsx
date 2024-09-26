@@ -45,25 +45,28 @@ export default function Story() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!post) return <p>Story not found.</p>;
-
-  return (
-    <>
-      <div className="bg-[#121212] text-white px-16">
-        <Navbar />
-        <Description
-          key={post._id}
-          title={post.title}
-          content={post.description}
-          author={post.overallAuthor}
-          genre={post.genre}
-          postId={post._id}
-        />
-        <div className="w-4/5 flex mx-auto">
-          <Version versions={post.versions} />
+  if (localStorage.getItem("name") === null) {
+    window.location.href = "/";
+  } else {
+    return (
+      <>
+        <div className="bg-[#121212] text-white px-16">
+          <Navbar />
+          <Description
+            key={post._id}
+            title={post.title}
+            content={post.description}
+            author={post.overallAuthor}
+            genre={post.genre}
+            postId={post._id}
+          />
+          <div className="w-4/5 flex mx-auto">
+            <Version versions={post.versions} />
+          </div>
+          <Comments />
         </div>
-        <Comments />
-      </div>
-      <Login_footer />
-    </>
-  );
+        <Login_footer />
+      </>
+    );
+  }
 }

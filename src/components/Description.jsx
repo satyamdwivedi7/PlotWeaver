@@ -9,8 +9,13 @@ export default function Description({ title, content, author, genre, postId }) {
         <h1 className="mx-4 text-2xl">{title}</h1>
         <p className="mx-4 text-sm">20/09/2024</p>
         <div className="flex justify-between mx-4 text-xl">
-          <div>
-            <p>Genre: {genre}</p>
+          <div className="font-sans text-base ">
+            <p>
+              Genre:{" "}
+              <span className="border text-base px-2 bg rounded-full bg-[#FFBD84] text-black">
+                {genre}
+              </span>
+            </p>
           </div>
           <div className="flex gap-2">
             <FaPenNib />

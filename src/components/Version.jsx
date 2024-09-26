@@ -3,14 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 const Version = ({ versions }) => {
   const [activeVersion, setActiveVersion] = useState(null);
-  const navigate = useNavigate(); // Use the useNavigate hook
+  const navigate = useNavigate();
 
   const toggleDropdown = (index) => {
     setActiveVersion((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const handleChapterSelect = (chapterIndex, version) => {
-    // Navigate to the chapter page using the story ID from the selected version
     navigate(
       `/story/${version.story}/version/${activeVersion}/chapter/${chapterIndex}`
     );
@@ -33,29 +32,20 @@ const Version = ({ versions }) => {
           {activeVersion === index && (
             <div
               className="bg-[#121212] text-white mt-2 px-4 py-2 rounded-lg border border-white-500"
-              style={{ width: "30rem" }} // Same width as Version div
+              style={{ width: "30rem" }}
             >
-              <p>Select a Chapter:</p>
-              <select
-                className="mt-2 p-2 rounded bg-[#D9D9D9] text-black w-full"
-                onChange={(e) => {
-                  const chapterIndex = e.target.value;
-                  if (chapterIndex) {
-                    handleChapterSelect(chapterIndex, version); // Pass the whole version object
-                  }
-                }}
-                defaultValue=""
-              >
-                {/* Default disabled option */}
-                <option value="" disabled>
-                  --Select a chapter--
-                </option>
+              <p className="text-[1.2rem] mb-4">Select a Chapter:</p>
+              <div className="flex flex-wrap gap-4">
                 {version.chapters.map((chapter, chapIndex) => (
-                  <option key={chapIndex} value={chapIndex}>
+                  <div
+                    key={chapIndex}
+                    onClick={() => handleChapterSelect(chapIndex, version)}
+                    className="cursor-pointer text-center text-[1.5rem] text-white bg-[#D9D9D9] bg-opacity-50 w-[8rem] h-[4rem] flex items-center justify-center rounded-lg border border-white-500"
+                  >
                     Chapter {chapIndex + 1}
-                  </option>
+                  </div>
                 ))}
-              </select>
+              </div>
             </div>
           )}
         </div>
@@ -65,5 +55,3 @@ const Version = ({ versions }) => {
 };
 
 export default Version;
-
-
